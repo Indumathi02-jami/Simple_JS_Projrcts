@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <img src="id1.jpg" class="slide" alt="">
+        <img src="id2.jpg" class="slide" alt="">
+        <img src="id3.jpg" class="slide" alt="">
+        <img src="id4.jpg" class="slide" alt="">
+    </main>
+    <div class="nav">
+        <button onclick="goprev()">prev</button>
+        <button onclick="gonext()">next</button>
+    </div>
+    
+    <script>
+
+        const slides = document.querySelectorAll(".slide");
+        var count=0;
+        slides.forEach(
+            (slide,index)=>{
+                slide.style.left = `${index * 100}%`
+            }
+        )
+        
+        const goprev = () =>{
+            if (count > 0) {
+            count--;
+            slideImage();
+        }
+        else{
+            alert("click on next");
+        }
+        };
+
+        const gonext = () =>{
+            if (count < slides.length - 1) { // Prevents going beyond last slide
+            count++;
+            slideImage();
+        }
+        else{
+            alert("click on prev");
+        }
+        }
+
+        const slideImage = () =>{
+            slides.forEach(
+                (slide) => {
+                    slide.style.transform = `translateX(-${count * 100}%)`
+                }
+            )
+        }
+    </script>
+
+
+</body>
+</html>
