@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="container">
+        <div class="navbar">
+            <img style="width: 150px; height: 100px;" src="create logo with gama with pink color.jpg" alt="" class="logo">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="#">ABOUT</a></li>
+                <li><a href="#">SPECIFICATIONS</a></li>
+                <li><a href="#">PRODUCTS</a></li>
+                <li><a href="#">CONNECT</a></li>
+            </ul>
+        </div>
+        <div class="context">
+            <div class="left-col">
+                <h1>THE <br>REAL <br>SOUND</h1>
+            </div>
+
+            <div class="right-col">
+                <p>Click here to listen</p>
+                <img id="icon" src="rewind-forward-icon-ice_335552-2805.avif" alt="" style="width: 70px; height: 70px;">
+            </div>
+        </div>
+    </div>
+    <audio id="mysong" > <source src="Inkem Inkem Inkem Kaavaale - SenSongsMp3.Co.mp3"></audio>
+
+
+    <script>
+
+        var mysong= document.getElementById("mysong");
+        var icon = document.getElementById("icon");
+        icon.onclick = function(){
+            if(mysong.paused){
+                mysong.play();
+                icon.src = "pause.jpg";
+
+            }
+            else{
+                mysong.pause();
+                icon.src = "play1.jpg";
+            }
+        }
+
+    </script>
+</body>
+</html>
