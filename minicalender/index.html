@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="calender">
+            <div class="left">
+                <p id="date">13</p>
+                <p id="day">Thursday</p>
+            </div>
+            <div class="right">
+                <p id="month">March</p>
+                <p id="year">2025</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const date=document.getElementById("date");
+        const day=document.getElementById("day");
+        const month=document.getElementById("month");
+        const year=document.getElementById("year");
+
+        const weekdays = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+        const allMonths = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+        const today= new Date();
+        date.innerHTML = (today.getDate()<10?"0":"")+today.getDate();
+        day.innerHTML = weekdays[today.getDay()];
+        month.innerHTML = allMonths[today.getMonth()];
+        year.innerHTML = today.getFullYear();
+    </script>
+</body>
+</html>
