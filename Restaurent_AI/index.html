@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Website</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Navbar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            color: white;
+            width: 100%;
+            position: fixed;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .navbar .nav-links li {
+            margin-left: 20px;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        /* Banner Section */
+        .banner {
+            background: url(images/zakaria-zayane-0uAVsDcyD0M-unsplash.jpg) no-repeat center center/cover ;
+            background-size: cover;
+            height: 800px;
+            display: flex;
+            justify-content: center;
+            color: rgb(0, 0, 0);
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .banner h1 {
+            font-size: 48px;
+            margin-top: 150px;
+            margin-bottom: 20px;
+        }
+
+        .banner p {
+            font-size: 24px;
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .menu h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .menu .menu-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .menu .menu-item {
+            width: 30%;
+            margin-bottom: 20px;
+        }
+
+        .menu .menu-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .menu .menu-item h3 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .menu .menu-item p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Gallery Section */
+        .gallery {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .gallery h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .gallery .gallery-images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .gallery .gallery-images img {
+            width: 30%;
+            height: 35%;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* About Us Section */
+        .about-us {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .about-us h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .about-us p {
+            font-size: 18px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Book a Table Section */
+        .book-table {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f4f4f4;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .book-table h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .book-table form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .book-table form input, .book-table form textarea {
+            margin-bottom: 20px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .book-table form button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .services h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .services .service-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .services .service-item {
+            width: 30%;
+            margin-bottom: 20px;
+        }
+
+        .services .service-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .services .service-item h3 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .services .service-item p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Blog Listing Section */
+        .blog-listing {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        .blog-listing h2 {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .blog-listing .blog-items {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .blog-listing .blog-item {
+            width: 30%;
+            margin-bottom: 20px;
+        }
+
+        .blog-listing .blog-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-listing .blog-item h3 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .blog-listing .blog-item p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer .social-links {
+            margin-bottom: 20px;
+        }
+
+        .footer .social-links a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 18px;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Restaurant</div>
+        <ul class="nav-links">
+            <li><a href="#banner">Home</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#book-table">Book a Table</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#blog-listing">Blog</a></li>
+        </ul>
+    </nav>
+
+    <!-- Banner Section -->
+    <section id="banner" class="banner">
+        <div>
+            <h1>Welcome to Our Restaurant</h1>
+            <p>Experience the best cuisine in town</p>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <h2>Our Menu</h2>
+        <div class="menu-items">
+            <div class="menu-item">
+                <img src="images/portuguese-gravity-qq3hT-CYD1I-unsplash.jpg" alt="Menu Item 1">
+                <h3>Dish 1</h3>
+                <p>Delicious dish made with fresh ingredients.</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/abillion-BlQc1APEaL0-unsplash.jpg" alt="Menu Item 2">
+                <h3>Dish 2</h3>
+                <p>Another delicious dish made with love.</p>
+            </div>
+            <div class="menu-item">
+                <img src="images/ella-olsson-2IxTgsgFi-s-unsplash.jpg" alt="Menu Item 3">
+                <h3>Dish 3</h3>
+                <p>A special dish that you will love.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-images">
+            <img src="images/yeh-xintong-5wwv5PgSnLI-unsplash.jpg" alt="Gallery Image 1">
+            <img src="images/mikki-speid-NAORMjpT4dw-unsplash.jpg" alt="Gallery Image 2">
+            <img src="images/jed-owen-q6Y8Xr3SoQA-unsplash.jpg" alt="Gallery Image 3">
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about-us" class="about-us">
+        <h2>About Us</h2>
+        <p> We believe that dining is more than just a meal—it’s an experience. Our warm and inviting atmosphere, combined with attentive service, ensures that every visit is memorable. Whether you’re joining us for a casual lunch, a romantic dinner, or a special celebration, we’re here to make your time with us unforgettable.</p>
+    </section>
+
+    <!-- Book a Table Section -->
+    <section id="book-table" class="book-table">
+        <h2>Book a Table</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="tel" placeholder="Your Phone" required>
+            <input type="date" required>
+            <input type="time" required>
+            <textarea placeholder="Special Requests"></textarea>
+            <button type="submit">Book Now</button>
+        </form>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-items">
+            <div class="service-item">
+                <img src="images/istockphoto-1249206724-1024x1024.jpg" alt="Service 1">
+                <h3>Catering</h3>
+                <p>We provide catering services for all types of events.</p>
+            </div>
+            <div class="service-item">
+                <img src="images/istockphoto-1490122169-1024x1024.jpg" alt="Service 2">
+                <h3>Private Dining</h3>
+                <p>Enjoy a private dining experience with your loved ones.</p>
+            </div>
+            <div class="service-item">
+                <img src="images/sigmund-Uhfb85y_B-U-unsplash.jpg" alt="Service 3">
+                <h3>Event Hosting</h3>
+                <p>Host your events at our restaurant with our expert team.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Listing Section -->
+    <section id="blog-listing" class="blog-listing">
+        <h2>Our Blog</h2>
+        <div class="blog-items">
+            <div class="blog-item">
+                <img src="images/ella-olsson-2IxTgsgFi-s-unsplash.jpg" alt="Blog Post 1">
+                <h3>Blog Post 1</h3>
+                <p>Read about our latest culinary adventures.</p>
+            </div>
+            <div class="blog-item">
+                <img src="images/jed-owen-q6Y8Xr3SoQA-unsplash.jpg" alt="Blog Post 2">
+                <h3>Blog Post 2</h3>
+                <p>Discover the secrets behind our signature dishes.</p>
+            </div>
+            <div class="blog-item">
+                <img src="images/yeh-xintong-5wwv5PgSnLI-unsplash.jpg" alt="Blog Post 3">
+                <h3>Blog Post 3</h3>
+                <p>Learn about the history of our restaurant.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="social-links">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">Instagram</a>
+        </div>
+        <p>&copy; 2023 Restaurant. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript for interactive elements can be added here
+        // Example: Form validation, image sliders, etc.
+    </script>
+
+</body>
+</html>
