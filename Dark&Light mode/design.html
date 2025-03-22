@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card UI</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f4f4f4;
+        }
+        .sec.dark {
+            background: #333;
+            color: #fff;
+        }
+        #profile-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 370px;
+            width: 100%;
+            padding: 25px;
+            background-color: #fff;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 25px;
+            position: relative;
+        }
+        .sec.dark #profile-card {
+            background-color: #444;
+        }
+        .toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgb(248, 244, 244);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .image {
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            background-color: #4070f4;
+            padding: 3px;
+            margin-bottom: 10px;
+        }
+        .image .profile-image {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid #fff;
+        }
+        .text-data {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .name {
+            font-size: 22px;
+            font-weight: 500;
+        }
+        .job {
+            font-size: 15px;
+            font-weight: 500;
+        }
+        .media-btn, .buttons, .analytics {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+        .link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            height: 34px;
+            font-size: 18px;
+            width: 34px;
+            border-radius: 50%;
+            margin: 0 8px;
+            background-color: #4070f4;
+            text-decoration: none;
+        }
+        .button {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 400;
+            border: none;
+            border-radius: 24px;
+            margin: 0 10px;
+            padding: 8px 24px;
+            background-color: #4070f4;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .button:hover {
+            background-color: #0e4bf1;
+        }
+        .analytics .data {
+            display: flex;
+            align-items: center;
+            color: #333;
+            padding: 0 20px;
+            border-right: 2px solid #e7e7e7;
+        }
+        .sec.dark .analytics .data {
+            color: #fff;
+        }
+        .data i {
+            font-size: 18px;
+            margin-right: 6px;
+        }
+        .data:last-child {
+            border-right: none;
+        }
+    </style>
+</head>
+<body>
+    <section class="sec">
+        <div id="profile-card">
+            <div class="toggle" id="theme-toggle">🌙</div>
+            <div class="image">
+                <img src="profile_1.webp" class="profile-image">
+            </div>
+            <div class="text-data">
+                <span class="name">CoddingLab</span>
+                <span class="job">YouTuber & Painter</span>
+            </div>
+            <div class="media-btn">
+                <a href="#" style="background-color: #4267b2;" class="link">
+                    <i class='bx bxl-facebook'></i>
+                </a>
+                <a href="#" style="background-color: #1da1f2;" class="link">
+                    <i class='bx bxl-twitter'></i>
+                </a>
+                <a href="#" style="background-color: #e1306c;" class="link">
+                    <i class='bx bxl-instagram-alt'></i>
+                </a>
+                <a href="#" style="background-color: #ff0000;" class="link">
+                    <i class='bx bxl-youtube'></i>
+                </a>
+            </div>
+            <div class="buttons">
+                <button class="button">Subscribe</button>
+                <button class="button">Message</button>
+            </div>
+            <div class="analytics">
+                <div class="data">
+                    <i class='bx bx-heart'></i>
+                    <span class="number">20k</span>
+                </div>
+                <div class="data">
+                    <i class='bx bx-message-rounded-dots'></i>
+                    <span class="number">10k</span>
+                </div>
+                <div class="data">
+                    <i class='bx bx-share'></i>
+                    <span class="number">60k</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        document.getElementById("theme-toggle").onclick = function () {
+            document.querySelector(".sec").classList.toggle("dark");
+            this.textContent = document.querySelector(".sec").classList.contains("dark") ? "☀️" : "🌙";
+        };
+    </script>
+</body>
+</html>
